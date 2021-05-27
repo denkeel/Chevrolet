@@ -17,6 +17,7 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
+        restart: always
 networks:
     sail:
         driver: bridge
