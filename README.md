@@ -1,4 +1,21 @@
 `git remote add origin https://github.com/denkeel/Chevrolet.git`
+1. Клонировать репозиторий
+2. Развернуть проект <br>
+   composer install
+3. Выполнить миграции <br>
+   php artisan migrate
+4. Выпонить команду для создания ключей шифрования, которые используются для генерации токенов <br>
+   php artisan passport:install
+5. Изменить настройки БД <br> 
+Не забудьте очистить бд(удалить ВСЕ таблицы) перед миграциями и установкой passport   
+<br><br>
+Login: метод: POST, URL:http://127.0.0.1/api/login <br>
+Register: метод:POST, URL:http://127.0.0.1/api/register <br>
+List: метод:GET, URL:http://127.0.0.1/api/orders <br>
+Create: метод:POST, URL:http://127.0.0.1/api/orders <br>
+Show: метод:GET, URL:http://127.0.0.1/api/orders/{id} <br>
+Update: метод:PUT, URL:http://127.0.0.1/api/orders/{id} <br>
+Delete: метод:DELETE, URL:http://127.0.0.1/api/orders/{id}
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img
             src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg"
