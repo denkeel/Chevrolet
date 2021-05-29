@@ -1,4 +1,3 @@
-`git remote add origin https://github.com/denkeel/Chevrolet.git`
 1. Клонировать репозиторий
 2. Развернуть проект <br>
    composer install
