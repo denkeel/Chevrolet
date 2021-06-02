@@ -19,7 +19,7 @@ class AuthController extends Controller
             $success['name'] = $user->name;
             return $this->sendResponse($success, 'User register successfully.');
         };
-        return $this->sendError('Validation Error.', $validator);;
+        return $this->sendError('Validation Error.', $validator);
     }
 
     public function login(Login $request): JsonResponse
