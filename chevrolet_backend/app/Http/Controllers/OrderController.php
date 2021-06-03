@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Order\CreateOrder;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -22,14 +23,22 @@ class OrderController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(CreateOrder $request): \Illuminate\Http\JsonResponse
     {
-        //
+        $order = new Order($request->validated());
+        if($order->save()) {
+            return $this->sendResponse($order->toArray(), 'Order create successfully');
+        }
+        return $this->sendError('error', 'Order create error');
     }
 
-    public function show(Order $order)
+    public function show(int $order): \Illuminate\Http\JsonResponse
     {
-        //
+        $order = Order::findOrFail($order);
+        if ($order) {
+            return $this->sendResponse($order->toArray(), 'Order show successfully');
+        }
+        return $this->sendError('error', 'Order not exist');
     }
 
 

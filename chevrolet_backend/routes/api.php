@@ -20,6 +20,5 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group( function () {
-    Route::resource('orders', OrderController::class);
-
+        Route::resource('orders', OrderController::class);
 });
