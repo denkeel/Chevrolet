@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Selectable\Positions;
+use App\Models\Position;
 use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -10,19 +12,11 @@ use Encore\Admin\Show;
 
 class UserController extends AdminController
 {
-    /**
-     * Title for current resource.
-     *
-     * @var string
-     */
+
     protected $title = 'User';
 
-    /**
-     * Make a grid builder.
-     *
-     * @return Grid
-     */
-    protected function grid()
+
+    protected function grid(): Grid
     {
         $grid = new Grid(new User());
 
@@ -35,18 +29,12 @@ class UserController extends AdminController
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
         $grid->column('last_name', __('Last name'));
-        $grid->column('position_id', __('Position id'));
+        $grid->column('position_id', __('Position id'))->belongsTo(Positions::class);
 
         return $grid;
     }
 
-    /**
-     * Make a show builder.
-     *
-     * @param mixed $id
-     * @return Show
-     */
-    protected function detail($id)
+    protected function detail($id): Show
     {
         $show = new Show(User::findOrFail($id));
 
@@ -64,22 +52,19 @@ class UserController extends AdminController
         return $show;
     }
 
-    /**
-     * Make a form builder.
-     *
-     * @return Form
-     */
-    protected function form()
+
+    protected function form(): Form
     {
+
         $form = new Form(new User());
 
         $form->text('name', __('Name'));
         $form->email('email', __('Email'));
         $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
-        $form->password('password', __('Password'));
-        $form->text('remember_token', __('Remember token'));
+        $form->password('password', ('Password'));
         $form->text('last_name', __('Last name'));
-        $form->number('position_id', __('Position id'));
+//        $form->number('position_id', __('Position id'));
+        $form->belongsTo('position_id', Positions::class,'placeholder...');
 
         return $form;
     }

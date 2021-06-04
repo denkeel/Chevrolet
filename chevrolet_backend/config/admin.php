@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Chevrolet</b> admin',
+    'logo' => '<b>Chevrolet</b>_admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<b>Ch_a</b>',
+    'logo-mini' => '<b>CA</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -153,7 +153,7 @@ return [
     'upload' => [
 
         // Disk in `config/filesystem.php`.
-        'disk' => 'admin',
+        'disk' => 'public',
 
         // Image and file upload path under the disk above.
         'directory' => [
@@ -239,7 +239,7 @@ return [
     | Indicates whether to check menu roles.
     |--------------------------------------------------------------------------
     */
-    'check_menu_roles'       => true,
+    'check_menu_roles' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -275,7 +275,7 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-blue-light',
+    'skin' => 'skin-green',
 
     /*
     |--------------------------------------------------------------------------
@@ -395,6 +395,8 @@ return [
     |
     */
     'extensions' => [
-
+        'media-manager' => [
+            'disk' => 'public'   // Points to the disk set in config/filesystem.php
+        ],
     ],
 ];
