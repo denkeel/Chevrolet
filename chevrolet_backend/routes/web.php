@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Artisan::call('storage:link'); //add local storage link
 
 Route::get('/', function () {
     return view('welcome');

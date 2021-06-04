@@ -15,5 +15,6 @@ Route::group([
 
     $router->resource('users', UserController::class);
     $router->resource('orders', OrderController::class);
+    $router->resource('positions', PositionController::class);
 
 });

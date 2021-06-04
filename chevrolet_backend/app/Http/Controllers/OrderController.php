@@ -38,7 +38,7 @@ class OrderController extends Controller
         if ($order) {
             return $this->sendResponse($order->toArray(), 'Order show successfully');
         }
-        return $this->sendError('error', 'Order not exist');
+        return $this->sendError($order, 'Order not exist');
     }
 
 
