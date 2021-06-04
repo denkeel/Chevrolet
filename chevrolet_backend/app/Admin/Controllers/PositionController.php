@@ -25,7 +25,6 @@ class PositionController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Position());
-
         $grid->column('id', __('Id'));
         $grid->column('job', __('Job'));
         $grid->column('created_at', __('Created at'));
